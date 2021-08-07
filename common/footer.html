@@ -1,0 +1,134 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-01-07 15:01:15
+ * @LastEditTime: 2021-01-31 11:37:57
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /web-php-guanwang/common/footer.html
+-->
+<!-- Footer -->
+<footer id="footer-area">
+  <div>
+    <div class="footer-wiget">
+      <div class="container">
+        <div class="row">
+          <div class="col-3">
+            <div class="footer-wiget-item">
+              <h4 style="color: #fff">新云网络</h4>
+              <p>新云网络，商城解决方案，无需开发，快速生成专属商城小程序。</p>
+              <div class="buy-qtr">
+                <div class="left-view img-view">
+                  <img
+                    class="img-left img"
+                    src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/assets/img/qrcode_gzh.jpg"
+                    alt=""
+                    style="padding: 0px; border-radius: 5px"
+                  />
+                  <p class="code-text" style="color: #fff">公众号</p>
+                </div>
+                <div class="right-view img-view">
+                  <img
+                    class="img-right img"
+                    src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/assets/img/qrcode_xcx.jpg"
+                    alt=""
+                    style="padding: 0px; border-radius: 5px"
+                  />
+                  <p class="code-text" style="color: #fff">小程序</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-2 offset-1">
+            <div class="footer-wiget-item">
+              <h5>公司</h5>
+              <ul>
+                <li>
+                  <a target="_blank" href="/details/about.html">关于我们</a>
+                </li>
+                <li id="footer-contact">
+                  <a href="javascript:void(0);">联系我们</a>
+                </li>
+                <li><a target="_blank" href="/news/1-1.html">资讯中心</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="footer-wiget-item">
+              <h5>产品</h5>
+              <ul>
+                <li>
+                  <a target="_blank" href="/details/wechat.html">小程序商城</a>
+                </li>
+                <li>
+                  <a target="_blank" href="/details/community-group.html"
+                    >社区团购</a
+                  >
+                </li>
+                <li>
+                  <a target="_blank" href="/details/more-mall.html"
+                    >多商户入驻</a
+                  >
+                </li>
+                <li><a target="_blank" href="/details/h5.html">H5商城</a></li>
+                <li>
+                  <a target="_blank" href="/details/phone-mall.html"
+                    >手机端商城管理</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="footer-wiget-item">
+              <h5>合作</h5>
+              <ul>
+                <li>
+                  <a target="_blank" href="/details/join-us.html">加入我们</a>
+                </li>
+                <li>
+                  <a target="_blank" href="/details/socium.html"
+                    >城市合伙人招募计划</a
+                  >
+                </li>
+                <li id="about-proplme">
+                  <a href="javascript:void(0);">反馈问题</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="copy-right">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="copyright silver-color">Copyright © 2021 梧州新云网络科技有限责任公司</div><br/>
+			  <a href="http://beian.miit.gov.cn/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/1000gcc/1000gcc.github.io@master/ping/static/media/icp.png" style="width:18px;height:15px;">桂ICP备 2020007365号
+			  </a>
+			</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+  function kefuBtn(name) {
+    _AIHECONG('customer', {
+      head:
+        'https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/assets/img/myimages/avater.png', //该字段可以将顾客头像同步过来
+      名称: name, // '属性名' : '值'
+      手机: '未知',
+      会员账号: '未知',
+    })
+    _AIHECONG('showChat')
+  }
+
+  $('#footer-contact').click(function () {
+    kefuBtn('底部联系我们')
+  })
+  $('#about-proplme').click(function () {
+    kefuBtn('底部反馈问题')
+  })
+</script>
