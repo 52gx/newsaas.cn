@@ -3,7 +3,7 @@
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", function (event) {
         navigator.serviceWorker
-            .register("/website/finwallapp/HTML/serviceWorker.js", {
+            .register("./serviceWorker.js", {
             //.register("./serviceWorker.js", {
                 scope: './'
             })
