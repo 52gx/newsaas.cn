@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,19 +16,64 @@
 	<!--跳转手机版 结束-->
 	<!--客服 开始-->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/assets/kefu/kefu.css" type="text/css" media="screen" charset="utf-8">
-	<!-- 客服 结束 -->  
+	<!-- 客服 结束 -->
+	<!-- 活动倒计时 开始 -->
+    <script src="https://img.newsaas.cn/newsaas.cn/assets/js/jquery.min.time.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var oDate = new Date();
+            var nowTime = oDate.getTime(); //现在的毫秒数
+            oDate.setDate(oDate.getDate() + 1); // 设定截止时间为第二天
+            var targetDate = new Date(oDate.toLocaleDateString());
+            run(targetDate);
+        });
+
+        function run(enddate) {
+            getDate(enddate);
+            setInterval("getDate('" + enddate + "')", 500);
+        }
+
+        function getDate(enddate) {
+            var oDate = new Date(); //获取日期对象
+
+            var nowTime = oDate.getTime(); //现在的毫秒数
+            var enddate = new Date(enddate);
+            var targetTime = enddate.getTime(); // 截止时间的毫秒数
+            var second = Math.floor((targetTime - nowTime) / 1000); //截止时间距离现在的秒数
+
+            var day = Math.floor(second / 24 * 60 * 60); //整数部分代表的是天；一天有24*60*60=86400秒 ；
+            second = second % 86400; //余数代表剩下的秒数；
+            var hour = Math.floor(second / 3600); //整数部分代表小时；
+            second %= 3600; //余数代表 剩下的秒数；
+            var minute = Math.floor(second / 60);
+            second %= 60;
+            var spanH = $('.se-txt')[0];
+            var spanM = $('.se-txt')[1];
+            var spanS = $('.se-txt')[2];
+
+            spanH.innerHTML = tow(hour);
+            spanM.innerHTML = tow(minute);
+            spanS.innerHTML = tow(second);
+        }
+
+        function tow(n) {
+            return n >= 0 && n < 10 ? '0' + n : '' + n;
+        }
+    </script>
+	<!-- 活动倒计时 结束 -->
     <!-- <title>小程序商城_小程序开发_分销商城_商城SaaS-新云网络商城平台</title> -->
     <!-- <meta name="keywords" content="小程序,小程序开发,小程序商城,分销商城,微商城" /> -->
     <meta name="keywords" content="小程序,微信小程序,小程序开发,微信小程序开发,小程序制作,小程序商城,分销商城,微商城" />
     <meta name="description" content="新云网络小程序平台，无需开发，10分钟上线小程序，小程序整套SaaS解决方案，支持小程序商城，小程序三级分销，社区团购、拼团砍价等，可视化商城装修，一键上线。小程序，微商城，微信小程序，商城小程序，微信小程序开发，小程序开发，微信小程序怎么做，微信商城，外卖小程序，餐饮小程序，餐饮外卖小程序，一键生成小程序 ，小程序saas，小程序saas平台，分销小程序，拼团小程序，社区团购小程序，小程序直播，公众号商城，微信扫码点单，扫码点单小程序，积分商城小程序，私域流量，小程序平台，小程序模板，小程序云开发，小程序开发公司，抖音小程序，小程序制作。">
     <meta name="keyClassificationwords" content="免费申请小程序">
     <meta name="copyright" content="梧州新云网络科技有限责任公司版权所有"/>
-    <link rel="Shortcut Icon" href="/assets/img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/css_lulu/Tab.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />      
-    <link rel="stylesheet" href="assets/css/css_section/industry.css" />
-    <link rel="stylesheet" href="assets/css/css_section/server.css" />   
+    <link rel="Shortcut Icon" href="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/assets/css/css_lulu/Tab.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/assets/css/style.css" />      
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/assets/css/css_section/industry.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/assets/css/css_section/server.css" />
+    
   </head>
   <body>
     <!-- Preloader -->
@@ -48,7 +94,7 @@
                 <img
                   class="header-index-logo"
                   id="header-logo"
-                  src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/newlogo/bai.jpg"
+                  src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/assets/img/logo_wh.png"
                   alt="新云网络 logo 小程序 小程序开发 快速上线小程序"
                 />
                 <!-- <h4 style="color: #fff; margin-top: 7px">新云网络</h4> -->
@@ -693,23 +739,23 @@
                 <a rel="nofollow" href="/order.html" target="_blank"> 我的订单 </a>
               </li>
               <li class="header-login nav-hide">
-                <a rel="nofollow" href="https://mall.newsaas.cn/">登录 / 注册</a>
+                <a rel="nofollow" href="javascript:void(0)">登录 / 注册</a>
               </li>
               <li class="top-btn user-admin nav-hide">
-                <a rel="nofollow" href="https://www.newsaas.cn/" target="_blank">
+                <a rel="nofollow" href="https://mall.newsaas.cn/web/index.php" target="_blank">
                   进入管理
                 </a>
               </li>
         
               <li class="top-btn try-admin">
-                <a rel="nofollow" href="https://free.newsaas.cn/"> 免费试用</a>
+                <a rel="nofollow" href="/login.html"> 免费试用</a>
               </li>
         
               <li class="drap-li-user nav-my-user">
                 <a
                   class="dreap-top"
                   target="_blank"
-                  href="https://www.toomatoo.cn/cloud/web/index.php?r=admin/user/me"
+                  href="https://mall.newsaas.cn/web/index.php?r=admin/user/me"
                 >
                   <img
                     style="
@@ -721,7 +767,7 @@
                       margin-right: 0px;
                       margin-top: -3px;
                     "
-                    src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/myimages/avater.png"
+                    src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/assets/img/myimages/avater.png"
                     alt="新云网络，小程序，小程商城，头像"
                   />
                   <!-- 153****5752 -->
@@ -758,7 +804,7 @@
                     >
                       <div class="user-avater">
                         <img
-                          src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/myimages/avater.png"
+                          src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/assets/img/myimages/avater.png"
                           alt=""
                         />
                       </div>
@@ -772,7 +818,7 @@
                         <img
                           id="banner-user-type"
                           class="user-code-icon"
-                          src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/myimages/user-try-icon.png"
+                          src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/assets/img/myimages/user-try-icon.png"
                           alt=""
                         />
                         <span
@@ -871,8 +917,8 @@
             </div>
             <div class="hero1-right">
               <div class="hero1-right-animet alltuchtopdown">
-                <img class="index-page-left1" src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/Untitled2.png" alt="新云网络商城，无需开发，快速上线专属小程序，小程序SaaS解决方案，支持小程序分销，社区团购等，可视化商城装修，一键上线" />
-                <img class="index-page-left2" src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/Untitled1.png" alt="新云网络商城，无需开发，快速上线专属小程序，小程序SaaS解决方案，支持小程序分销，社区团购等，可视化商城装修，一键上线" />
+                <img class="index-page-left1" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/Untitled2.png" alt="新云商城，无需开发，快速上线专属小程序，小程序SaaS解决方案，支持小程序分销，社区团购等，可视化商城装修，一键上线" />
+                <img class="index-page-left2" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/Untitled1.png" alt="新云商城，无需开发，快速上线专属小程序，小程序SaaS解决方案，支持小程序分销，社区团购等，可视化商城装修，一键上线" />
               </div>
             </div>
           </div>
@@ -1396,19 +1442,19 @@
                     <div class="img-view">
                       <img
                         class="img-view-1"
-                        src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/zongheshangcheng-2.png"
+                        src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/zongheshangcheng-2.png"
                         alt="小程序商城，实例模板，分类中心"
                       />
                       <img
                         class="img-view-2"
-                        src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/zongheshangcheng-1.png"
+                        src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/zongheshangcheng-1.png"
                         alt="小程序商城，综合商城，小程序开发"
                       />
                       <div class="show-code-img">
                         <div class="show-code-img-view">
                           <img
                             class="code-img"
-                            src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/fqwycode.jpg"
+                            src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/fqwycode.jpg"
                             alt="无需开发，快速上线小程序，综合商城，新云网络"
                           />
                           <p class="code-text mt-1">扫码体验商城</p>
@@ -1428,7 +1474,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-1.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-1.png"
                               alt="多重流量入口"
                             />
                           </div>
@@ -1442,7 +1488,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-2.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-2.png"
                               alt="深度融合微信功能"
                             />
                           </div>
@@ -1456,7 +1502,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-3.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-3.png"
                               alt="小程序+公众号+H5多组合解决方案"
                             />
                           </div>
@@ -1470,7 +1516,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-4.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-4.png"
                               alt="多样化分享策略"
                             />
                           </div>
@@ -1484,7 +1530,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-5.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-5.png"
                               alt="更多的社交营销功能"
                             />
                           </div>
@@ -1498,7 +1544,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-6.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-6.png"
                               alt="搜索直达更有力"
                             />
                           </div>
@@ -1511,7 +1557,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-7.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-7.png"
                               alt="丰富的模板消息，指令快速传达"
                             />
                           </div>
@@ -1524,7 +1570,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-8.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-8.png"
                               alt="更流畅的使用体验"
                             />
                           </div>
@@ -1553,19 +1599,19 @@
                     <div class="img-view">
                       <img
                         class="img-view-1"
-                        src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/shequtuangou-user.png"
+                        src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/shequtuangou-user.png"
                         alt="社区团购，团长招募令"
                       />
                       <img
                         class="img-view-2"
-                        src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/shequtuangou-phone.png"
+                        src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/shequtuangou-phone.png"
                         alt="社区团购页面，新云网络，实例商城"
                       />
                       <div class="show-code-img">
                         <div class="show-code-img-view">
                           <img
                             class="code-img"
-                            src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/shequtuangou-code.jpeg"
+                            src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/shequtuangou-code.jpeg"
                             alt="扫码体验，无需开发，快速上线小程序，社区团购，新云网络"
                           />
                           <p class="code-text mt-1">扫码体验社区团购</p>
@@ -1588,7 +1634,7 @@
                           <div class="row right-main-item" style="margin: 0px">
                             <div class="col-3" style="padding: 0px">
                               <img
-                                src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-6.png"
+                                src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-6.png"
                                 alt="丰富的社区团购解决方案"
                               />
                             </div>
@@ -1604,7 +1650,7 @@
                           <div class="row right-main-item" style="margin: 0px">
                             <div class="col-3" style="padding: 0px">
                               <img
-                                src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-4.png"
+                                src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-4.png"
                                 alt="一键添加社区团购商品"
                               />
                             </div>
@@ -1620,7 +1666,7 @@
                           <div class="row right-main-item" style="margin: 0px">
                             <div class="col-3" style="padding: 0px">
                               <img
-                                src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-4.png"
+                                src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-4.png"
                                 alt="实时订单管理"
                               />
                             </div>
@@ -1636,7 +1682,7 @@
                           <div class="row right-main-item" style="margin: 0px">
                             <div class="col-3" style="padding: 0px">
                               <img
-                                src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-1.png"
+                                src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-1.png"
                                 alt="一键招募团长"
                               />
                             </div>
@@ -1652,7 +1698,7 @@
                           <div class="row right-main-item" style="margin: 0px">
                             <div class="col-3" style="padding: 0px">
                               <img
-                                src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-2.png"
+                                src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-2.png"
                                 alt="丰富的自定义组件、分享模块"
                               />
                             </div>
@@ -1668,7 +1714,7 @@
                           <div class="row right-main-item" style="margin: 0px">
                             <div class="col-3" style="padding: 0px">
                               <img
-                                src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-3.png"
+                                src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-3.png"
                                 alt="一键佣金结算，支持自动、手动打款等"
                               />
                             </div>
@@ -1684,7 +1730,7 @@
                           <div class="row right-main-item" style="margin: 0px">
                             <div class="col-3" style="padding: 0px">
                               <img
-                                src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-5.png"
+                                src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-5.png"
                                 alt="团长管理端"
                               />
                             </div>
@@ -1700,7 +1746,7 @@
                           <div class="row right-main-item" style="margin: 0px">
                             <div class="col-3" style="padding: 0px">
                               <img
-                                src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-7.png"
+                                src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-7.png"
                                 alt="自定义模块消息，推广看得见"
                               />
                             </div>
@@ -1721,26 +1767,26 @@
                 </div>
               </div>
           
-              <!-- 多商户入住 -->
+              <!-- 多商户入驻 -->
               <div id="tabTarget3" class="ui-tab-content tabTarget-page">
                 <div class="row">
                   <div class="col-5 col-left shequtuan">
                     <div class="img-view">
                       <img
                         class="img-view-1"
-                        src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/duoshanghu-2.png"
+                        src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/duoshanghu-2.png"
                         alt="多商户入驻，多商户平台小程序，多商户商城"
                       />
                       <img
                         class="img-view-2"
-                        src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/duoshanghu-1.png"
+                        src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/duoshanghu-1.png"
                         alt="多商户入驻，多商户平台小程序，多商户商城"
                       />
                       <div class="show-code-img">
                         <div class="show-code-img-view">
                           <img
                             class="code-img"
-                            src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/%E5%A5%BD%E5%BA%97%E6%8E%A8%E8%8D%90.jpeg"
+                            src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/%E5%A5%BD%E5%BA%97%E6%8E%A8%E8%8D%90.jpeg"
                             alt="扫码体验多商户版"
                           />
                           <p class="code-text mt-1">扫码体验多商户版</p>
@@ -1765,7 +1811,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-6.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-6.png"
                               alt="一键申请入驻"
                             />
                           </div>
@@ -1779,7 +1825,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-4.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-4.png"
                               alt="支持首页、活动页等添加店铺推荐"
                             />
                           </div>
@@ -1793,7 +1839,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-4.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-4.png"
                               alt="商品上架审核"
                             />
                           </div>
@@ -1807,7 +1853,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-1.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-1.png"
                               alt="入驻商商品管理/订单管理"
                             />
                           </div>
@@ -1821,7 +1867,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-2.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-2.png"
                               alt="设置入驻商自动、手动提现方式"
                             />
                           </div>
@@ -1835,7 +1881,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-3.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-3.png"
                               alt="入驻消息管理"
                             />
                           </div>
@@ -1849,7 +1895,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-5.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-5.png"
                               alt="支持多商户自定义客服"
                             />
                           </div>
@@ -1863,7 +1909,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-7.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-7.png"
                               alt="支持自定义表单审核"
                             />
                           </div>
@@ -1890,19 +1936,19 @@
                     <div class="img-view">
                       <img
                         class="img-view-1"
-                        src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/shengxianguoshu-2.png"
+                        src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/shengxianguoshu-2.png"
                         alt="小程序商城，免费模板，生鲜果蔬，小程序商城模板免费使用"
                       />
                       <img
                         class="img-view-2"
-                        src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/shengxianguoshu-1.png"
+                        src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/shengxianguoshu-1.png"
                         alt="小程序商城，免费模板，生鲜果蔬，小程序商城模板免费使用"
                       />
                       <div class="show-code-img">
                         <div class="show-code-img-view">
                           <img
                             class="code-img"
-                            src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/%E7%95%AA%E8%8C%84%E5%BE%AE%E4%BA%91%E7%94%9F%E9%B2%9C.jpeg"
+                            src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/%E7%95%AA%E8%8C%84%E5%BE%AE%E4%BA%91%E7%94%9F%E9%B2%9C.jpeg"
                             alt="扫码体验生鲜模板"
                           />
                           <p class="code-text mt-1">扫码体验生鲜模板</p>
@@ -1921,7 +1967,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-6.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-6.png"
                               alt="渠道推广多样化"
                             />
                           </div>
@@ -1935,7 +1981,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-4.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-4.png"
                               alt="一键搭建自有小程序，有效拓展门店客源"
                             />
                           </div>
@@ -1949,7 +1995,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-4.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-4.png"
                               alt="会员充值功能，有效回笼资金"
                             />
                           </div>
@@ -1963,7 +2009,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-1.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-1.png"
                               alt="会员激励，会员精细化管理，增加转化率"
                             />
                           </div>
@@ -1977,7 +2023,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-2.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-2.png"
                               alt="数据运营，随时随地掌握店铺详情"
                             />
                           </div>
@@ -1991,7 +2037,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-3.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-3.png"
                               alt="圈子社交功能，随时推广商家活动"
                             />
                           </div>
@@ -2005,7 +2051,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-5.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-5.png"
                               alt="多商户功能，实时管理分店经营状况"
                             />
                           </div>
@@ -2019,7 +2065,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-7.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-7.png"
                               alt="生鲜一站式解决方案"
                             />
                           </div>
@@ -2048,19 +2094,19 @@
                     <div class="img-view">
                       <img
                         class="img-view-1"
-                        src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/meizhuang-2.png"
+                        src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/meizhuang-2.png"
                         alt="小程序商城，免费模板，美妆丽人，小程序商城模板免费使用"
                       />
                       <img
                         class="img-view-2"
-                        src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/meizhuang-1.png"
+                        src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/meizhuang-1.png"
                         alt="小程序商城，免费模板，美妆丽人，小程序商城模板免费使用"
                       />
                       <div class="show-code-img">
                         <div class="show-code-img-view">
                           <img
                             class="code-img"
-                            src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/%E7%95%AA%E8%8C%84%E5%BE%AE%E4%BA%91%E7%BE%8E%E5%A6%86%E4%B8%BD%E4%BA%BA.jpeg"
+                            src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/%E7%95%AA%E8%8C%84%E5%BE%AE%E4%BA%91%E7%BE%8E%E5%A6%86%E4%B8%BD%E4%BA%BA.jpeg"
                             alt="扫码体验美妆丽人"
                           />
                           <p class="code-text mt-1">扫码体验美妆丽人</p>
@@ -2079,7 +2125,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-6.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-6.png"
                               alt="渠道推广多样化"
                             />
                           </div>
@@ -2093,7 +2139,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-4.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-4.png"
                               alt="一键搭建自有小程序，有效拓展门店客源"
                             />
                           </div>
@@ -2107,7 +2153,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-4.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-4.png"
                               alt="会员充值功能，有效回笼资金"
                             />
                           </div>
@@ -2121,7 +2167,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-1.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-1.png"
                               alt="会员激励，会员精细化管理，增加转化率"
                             />
                           </div>
@@ -2135,7 +2181,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-2.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-2.png"
                               alt="数据运营，随时随地掌握店铺详情"
                             />
                           </div>
@@ -2149,7 +2195,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-3.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-3.png"
                               alt="圈子社交功能，随时推广商家活动"
                             />
                           </div>
@@ -2163,7 +2209,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-5.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-5.png"
                               alt="多商户功能，实时管理分店经营状况"
                             />
                           </div>
@@ -2178,7 +2224,7 @@
                           <div class="row right-main-item" style="margin: 0px">
                             <div class="col-3" style="padding: 0px">
                               <img
-                                src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-7.png"
+                                src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-7.png"
                                 alt="美妆行业一站解决方案"
                               />
                             </div>
@@ -2209,19 +2255,19 @@
                     <div class="img-view">
                       <img
                         class="img-view-1"
-                        src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/youxikaquan-4.png"
+                        src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/youxikaquan-4.png"
                         alt="小程序商城，免费模板，游戏卡券，小程序商城模板免费使用"
                       />
                       <img
                         class="img-view-2"
-                        src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/youxikaquan-1.png"
+                        src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/youxikaquan-1.png"
                         alt="小程序商城，免费模板，游戏卡券，小程序商城模板免费使用"
                       />
                       <div class="show-code-img">
                         <div class="show-code-img-view">
                           <img
                             class="code-img"
-                            src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/%E7%95%AA%E8%8C%84%E5%BE%AE%E4%BA%91%E6%B8%B8%E6%88%8F%E5%8D%A1%E5%88%B8.jpeg"
+                            src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/%E7%95%AA%E8%8C%84%E5%BE%AE%E4%BA%91%E6%B8%B8%E6%88%8F%E5%8D%A1%E5%88%B8.jpeg"
                             alt="扫码体验游戏卡券"
                           />
                           <p class="code-text mt-1">扫码体验游戏卡券</p>
@@ -2240,7 +2286,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-6.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-6.png"
                               alt="渠道推广多样化"
                             />
                           </div>
@@ -2254,7 +2300,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-4.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-4.png"
                               alt="一键搭建自有小程序，有效拓展门店客源"
                             />
                           </div>
@@ -2268,7 +2314,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-4.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-4.png"
                               alt="会员充值功能，有效回笼资金"
                             />
                           </div>
@@ -2282,7 +2328,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-1.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-1.png"
                               alt="会员激励，会员精细化管理，增加转化率"
                             />
                           </div>
@@ -2296,7 +2342,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-2.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-2.png"
                               alt="数据运营，随时随地掌握店铺详情"
                             />
                           </div>
@@ -2310,7 +2356,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-3.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-3.png"
                               alt="圈子社交功能，随时推广商家活动"
                             />
                           </div>
@@ -2324,7 +2370,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-5.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-5.png"
                               alt="多商户功能，实时管理分店经营状况"
                             />
                           </div>
@@ -2338,7 +2384,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-7.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-7.png"
                               alt="游戏充值一站式解决方案"
                             />
                           </div>
@@ -2367,19 +2413,19 @@
                     <div class="img-view">
                       <img
                         class="img-view-1"
-                        src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/xianhualipin-2.png"
+                        src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/xianhualipin-2.png"
                         alt="小程序商城，免费模板，鲜花礼品，小程序商城模板免费使用"
                       />
                       <img
                         class="img-view-2"
-                        src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/xianhualipin-1.png"
+                        src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/xianhualipin-1.png"
                         alt="小程序商城，免费模板，鲜花礼品，小程序商城模板免费使用"
                       />
                       <div class="show-code-img">
                         <div class="show-code-img-view">
                           <img
                             class="code-img"
-                            src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/%E7%95%AA%E8%8C%84%E5%BE%AE%E4%BA%91%E9%B2%9C%E8%8A%B1%E7%A4%BC%E5%93%81.jpeg"
+                            src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/%E7%95%AA%E8%8C%84%E5%BE%AE%E4%BA%91%E9%B2%9C%E8%8A%B1%E7%A4%BC%E5%93%81.jpeg"
                             alt="扫码体验鲜花礼品"
                           />
                           <p class="code-text mt-1">扫码体验鲜花礼品</p>
@@ -2398,7 +2444,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-6.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-6.png"
                               alt="渠道推广多样化"
                             />
                           </div>
@@ -2412,7 +2458,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-4.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-4.png"
                               alt="一键搭建自有小程序，有效拓展门店客源"
                             />
                           </div>
@@ -2426,7 +2472,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-4.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-4.png"
                               alt="会员充值功能，有效回笼资金"
                             />
                           </div>
@@ -2440,7 +2486,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-1.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-1.png"
                               alt="会员激励，会员精细化管理，增加转化率"
                             />
                           </div>
@@ -2454,7 +2500,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-2.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-2.png"
                               alt="数据运营，随时随地掌握店铺详情"
                             />
                           </div>
@@ -2468,7 +2514,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-3.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-3.png"
                               alt="圈子社交功能，随时推广商家活动"
                             />
                           </div>
@@ -2482,7 +2528,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-5.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-5.png"
                               alt="多商户功能，实时管理分店经营状况"
                             />
                           </div>
@@ -2496,7 +2542,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-7.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-7.png"
                               alt="鲜花礼品一站式解决方案"
                             />
                           </div>
@@ -2524,19 +2570,19 @@
                     <div class="img-view">
                       <img
                         class="img-view-1"
-                        src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/chaoshibaihuo-1.png"
+                        src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/chaoshibaihuo-1.png"
                         alt="小程序商城，免费模板，超市百货，小程序商城模板免费使用"
                       />
                       <img
                         class="img-view-2"
-                        src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/chaoshibaihuo-2.png"
+                        src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/chaoshibaihuo-2.png"
                         alt="小程序商城，免费模板，超市百货，小程序商城模板免费使用"
                       />
                       <div class="show-code-img">
                         <div class="show-code-img-view">
                           <img
                             class="code-img"
-                            src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/%E7%95%AA%E8%8C%84%E5%BE%AE%E4%BA%91%E8%B6%85%E5%B8%82%E7%99%BE%E8%B4%A7.jpeg"
+                            src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/%E7%95%AA%E8%8C%84%E5%BE%AE%E4%BA%91%E8%B6%85%E5%B8%82%E7%99%BE%E8%B4%A7.jpeg"
                             alt="扫码体验超市百货"
                           />
                           <p class="code-text mt-1">扫码体验超市百货</p>
@@ -2555,7 +2601,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-6.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-6.png"
                               alt="渠道推广多样化"
                             />
                           </div>
@@ -2569,7 +2615,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-4.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-4.png"
                               alt="键搭建自有小程序，有效拓展门店客源"
                             />
                           </div>
@@ -2583,7 +2629,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-4.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-4.png"
                               alt="会员充值功能，有效回笼资金"
                             />
                           </div>
@@ -2597,7 +2643,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-1.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-1.png"
                               alt="会员激励，会员精细化管理，增加转化率"
                             />
                           </div>
@@ -2611,7 +2657,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-2.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-2.png"
                               alt="数据运营，随时随地掌握店铺详情"
                             />
                           </div>
@@ -2625,7 +2671,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-3.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-3.png"
                               alt="圈子社交功能，随时推广商家活动"
                             />
                           </div>
@@ -2639,7 +2685,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-5.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-5.png"
                               alt="多商户功能，实时管理分店经营状况"
                             />
                           </div>
@@ -2653,7 +2699,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-7.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-7.png"
                               alt="超市百货一站式解决方案"
                             />
                           </div>
@@ -2681,19 +2727,19 @@
                     <div class="img-view">
                       <img
                         class="img-view-1"
-                        src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/fenxiaodaili-2.png"
+                        src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/fenxiaodaili-2.png"
                         alt="小程序分销，小程序代理，小程序商城，小程序开发，小程序"
                       />
                       <img
                         class="img-view-2"
-                        src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/fenxiaodaili-1.png"
+                        src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/fenxiaodaili-1.png"
                         alt="小程序分销，小程序代理，小程序商城，小程序开发，小程序"
                       />
                       <div class="show-code-img">
                         <div class="show-code-img-view">
                           <img
                             class="code-img"
-                            src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/%E5%88%86%E9%94%80%E4%B8%AD%E5%BF%83.jpeg"
+                            src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/%E5%88%86%E9%94%80%E4%B8%AD%E5%BF%83.jpeg"
                             alt="扫码体验超分销代理"
                           />
                           <p class="code-text mt-1">扫码体验超分销代理</p>
@@ -2712,7 +2758,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-6.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-6.png"
                               alt="更多的人帮你卖货"
                             />
                           </div>
@@ -2726,7 +2772,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-4.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-4.png"
                               alt="裂变营销推广"
                             />
                           </div>
@@ -2741,7 +2787,7 @@
                           <div class="row right-main-item" style="margin: 0px">
                             <div class="col-3" style="padding: 0px">
                               <img
-                                src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-4.png"
+                                src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-4.png"
                                 alt="支持三级分销"
                               />
                             </div>
@@ -2757,7 +2803,7 @@
                           <div class="row right-main-item" style="margin: 0px">
                             <div class="col-3" style="padding: 0px">
                               <img
-                                src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-1.png"
+                                src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-1.png"
                                 alt="快速拓展销售渠道"
                               />
                             </div>
@@ -2773,7 +2819,7 @@
                           <div class="row right-main-item" style="margin: 0px">
                             <div class="col-3" style="padding: 0px">
                               <img
-                                src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-2.png"
+                                src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-2.png"
                                 alt="万人分销模式，人人都是分销员"
                               />
                             </div>
@@ -2789,7 +2835,7 @@
                           <div class="row right-main-item" style="margin: 0px">
                             <div class="col-3" style="padding: 0px">
                               <img
-                                src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-3.png"
+                                src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-3.png"
                                 alt="支持佣金自动结算"
                               />
                             </div>
@@ -2804,7 +2850,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-5.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-5.png"
                               alt="支持设置分销商升级条件"
                             />
                           </div>
@@ -2818,7 +2864,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-7.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-7.png"
                               alt="自定义分销佣金比例"
                             />
                           </div>
@@ -2847,19 +2893,19 @@
                     <div class="img-view">
                       <img
                         class="img-view-1"
-                        src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/mianduimianfukuan-1.png"
+                        src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/mianduimianfukuan-1.png"
                         alt="面对面付款，线下付款，小程序线下付款，小程序开发，小程序商城"
                       />
                       <img
                         class="img-view-2"
-                        src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/mianduimianfukuan-2.png"
+                        src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/mianduimianfukuan-2.png"
                         alt="对面付款，线下付款，小程序线下付款，小程序开发，小程序商城"
                       />
                       <div class="show-code-img">
                         <div class="show-code-img-view">
                           <img
                             class="code-img"
-                            src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/%E5%BD%93%E9%9D%A2%E4%BB%98.jpeg"
+                            src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/%E5%BD%93%E9%9D%A2%E4%BB%98.jpeg"
                             alt="无需开发，快速上线小程序，新云网络，小程序面对面付款"
                           />
                           <p class="code-text mt-1">扫码体验</p>
@@ -2878,7 +2924,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-6.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-6.png"
                               alt="⾯对⾯的扫码收付款"
                             />
                           </div>
@@ -2892,7 +2938,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-4.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-4.png"
                               alt="支持指定金额收款"
                             />
                           </div>
@@ -2906,7 +2952,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-4.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-4.png"
                               alt="多种支付方式，余额、微信支付、支付宝支付"
                             />
                           </div>
@@ -2920,7 +2966,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-1.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-1.png"
                               alt="线下线上客户同时转化"
                             />
                           </div>
@@ -2934,12 +2980,12 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-2.png"
-                              alt="余额⽀付轻松快捷"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-2.png"
+                              alt="余额支付轻松快捷"
                             />
                           </div>
                           <div class="col-9">
-                            <p class="col-p mt-4">余额⽀付轻松快捷</p>
+                            <p class="col-p mt-4">余额支付轻松快捷</p>
                           </div>
                         </div>
                       </div>
@@ -2948,7 +2994,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-3.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-3.png"
                               alt="支持优惠券发放，刺激用户消费"
                             />
                           </div>
@@ -2962,12 +3008,12 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-5.png"
-                              alt="统⼀管理流⽔"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-5.png"
+                              alt="统一管理流水"
                             />
                           </div>
                           <div class="col-9">
-                            <p class="col-p mt-4">统⼀管理流⽔</p>
+                            <p class="col-p mt-4">统一管理流水</p>
                           </div>
                         </div>
                       </div>
@@ -2976,7 +3022,7 @@
                         <div class="row right-main-item" style="margin: 0px">
                           <div class="col-3" style="padding: 0px">
                             <img
-                              src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/m2-7.png"
+                              src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/m2-7.png"
                               alt="支持积分领取"
                             />
                           </div>
@@ -3017,7 +3063,7 @@
               <div class="server-item float-l">
                 <img
                   class="server-item-img"
-                  src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/%E5%BC%80%E5%8F%91%E6%89%8B%E6%9C%BA%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F.png"
+                  src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/开发手机应用程序.png"
                   alt="7*24小时在线指导，远程协助，专业的一对一服务，解决您在使用中的一切问题。"
                 />
                 <p class="server-item-title">一对一在线指导</p>
@@ -3028,7 +3074,7 @@
               <div class="server-item float-l">
                 <img
                   class="server-item-img"
-                  src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/%E5%8D%8F%E4%BD%9C%E9%9A%BE%E9%A2%98.png"
+                  src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/协作难题.png"
                   alt="一次购买，终生售后保障，让您装修无忧，运营无忧。"
                 />
                 <p class="server-item-title">终生售后保障</p>
@@ -3039,7 +3085,7 @@
               <div class="server-item float-l">
                 <img
                   class="server-item-img"
-                  src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/%E5%9B%A2%E9%98%9F%E5%90%88%E4%BD%9C%E5%A7%94%E5%91%98%E4%BC%9A.png"
+                  src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/团队合作委员会.png"
                   alt="系统安全运营多年，我们有专业的技术团队为您保驾护航。"
                 />
                 <p class="server-item-title">多年沉淀系统稳定</p>
@@ -3051,7 +3097,7 @@
               <div class="server-item float-l">
                 <img
                   class="server-item-img"
-                  src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/%E5%9B%A2%E9%98%9F%E5%90%88%E4%BD%9C%E7%9A%84%E9%92%B1.png"
+                  src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/团队合作的钱.png"
                   alt="丰富的运营促销玩法，是您获客斩获订单的利器。"
                 />
                 <p class="server-item-title">运营无忧</p>
@@ -3063,7 +3109,7 @@
               <div class="server-item float-l">
                 <img
                   class="server-item-img"
-                  src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/%E8%A1%A8%E7%A4%BA%E5%90%88%E4%BD%9C.png"
+                  src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/表示合作.png"
                   alt="实时数据备份，服务器集群部署，数据库容灾机制为您的每一份数据保驾护航。"
                 />
                 <p class="server-item-title">数据安全守护</p>
@@ -3074,7 +3120,7 @@
               <div class="server-item float-l">
                 <img
                   class="server-item-img"
-                  src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/%E5%9B%A2%E9%98%9F%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F.png"
+                  src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/团队构建应用程序.png"
                   alt="新云网络正在不断更新和成长，随时收集客户需求，定期更新系统。"
                 />
                 <p class="server-item-title">持续更新</p>
@@ -3148,13 +3194,13 @@
             <div class="row">
               <div class="col-7">
                 <div class="overview-img" data-aos="fade-up">
-                  <img class="img-2" src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/diy-product.png" alt="无需开发，快速上线小程序，小程序商城，新云网络" />
-                  <img class="img-1" src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/zongheshangcheng-1.png" alt="无需开发，快速上线小程序，小程序商城，新云网络" />
+                  <img class="img-2" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/diy-product.png" alt="无需开发，快速上线小程序，小程序商城，新云网络" />
+                  <img class="img-1" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/zongheshangcheng-1.png" alt="无需开发，快速上线小程序，小程序商城，新云网络" />
                   <div class="show-code-img">
                     <div class="show-code-img-view">
                       <img
                       class="code-img"
-                      src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/fqwycode.jpg"
+                      src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/fqwycode.jpg"
                       alt="扫码体验小程序商城"
                     />
                     <p class="code-text mt-1">扫码体验小程序商城</p>
@@ -3294,13 +3340,13 @@
               </div>
               <div class="col-7 ">
                 <div class="overview-bottom-img" data-aos="fade-up">
-                  <img class="img-2" src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/zhibo-2.png" alt="无需开发，快速上线小程序，小程序直播，新云网络" />
-                  <img class="img-1" src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/zhibo-1.png" alt="无需开发，快速上线小程序，小程序直播，新云网络" />
+                  <img class="img-2" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/zhibo-2.png" alt="无需开发，快速上线小程序，小程序直播，新云网络" />
+                  <img class="img-1" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/zhibo-1.png" alt="无需开发，快速上线小程序，小程序直播，新云网络" />
                   <div class="show-code-img">
                     <div class="show-code-img-view">
                       <img
                       class="code-img"
-                      src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/%E7%9B%B4%E6%92%AD%E5%88%97%E8%A1%A8.jpeg"
+                      src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/%E7%9B%B4%E6%92%AD%E5%88%97%E8%A1%A8.jpeg"
                       alt="扫码体验小程序直播"
                     />
                     <p class="code-text mt-1">扫码体验小程序直播</p>
@@ -3318,13 +3364,13 @@
             <div class="row">
               <div class="col-lg-7">
                 <div class="overview-img" data-aos="fade-up">
-                  <img class="img-2" src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/meizhuang-1.png" alt="无需开发，快速上线小程序，可视化店铺设计，新云网络" />
-                  <img class="img-1" src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/xianhualipin-1.png" alt="无需开发，快速上线小程序，可视化店铺设计，新云网络" />
+                  <img class="img-2" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/meizhuang-1.png" alt="无需开发，快速上线小程序，可视化店铺设计，新云网络" />
+                  <img class="img-1" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/xianhualipin-1.png" alt="无需开发，快速上线小程序，可视化店铺设计，新云网络" />
                   <div class="show-code-img">
                     <div class="show-code-img-view">
                       <img
                       class="code-img"
-                      src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/%E7%95%AA%E8%8C%84%E5%BE%AE%E4%BA%91%E9%B2%9C%E8%8A%B1%E7%A4%BC%E5%93%81.jpeg"
+                      src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/%E7%95%AA%E8%8C%84%E5%BE%AE%E4%BA%91%E9%B2%9C%E8%8A%B1%E7%A4%BC%E5%93%81.jpeg"
                       alt="扫码体验行业模板"
                     />
                     <p class="code-text mt-1">扫码体验行业模板</p>
@@ -3470,13 +3516,13 @@
               </div>
               <div class="col-7">
                 <div class="overview-bottom-img" data-aos="fade-up">
-                  <img class="img-2" src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/choujiang-1.png" alt="无需开发，快速上线小程序，小程序营销，新云网络" />
-                  <img class="img-1" src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/diy-product.png" alt="无需开发，快速上线小程序，小程序营销，新云网络" />
+                  <img class="img-2" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/choujiang-1.png" alt="无需开发，快速上线小程序，小程序营销，新云网络" />
+                  <img class="img-1" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/diy-product.png" alt="无需开发，快速上线小程序，小程序营销，新云网络" />
                   <div class="show-code-img">
                     <div class="show-code-img-view">
                       <img
                       class="code-img"
-                      src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/%E4%B8%93%E5%8C%BA%20%281%29.jpeg"
+                      src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/%E4%B8%93%E5%8C%BA%20%281%29.jpeg"
                       alt="扫码体验营销功能"
                     />
                     <p class="code-text mt-1">扫码体验营销功能</p>
@@ -3494,13 +3540,13 @@
             <div class="row">
               <div class="col-7">
                 <div class="overview-img" data-aos="fade-up">
-                  <img class="img-2" src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/shoujiduan-6.png" alt="无需开发，快速上线小程序，手机端商城管理，新云网络" />
-                  <img class="img-1" src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/shoujiduan-1.png" alt="无需开发，快速上线小程序，手机端商城管理，新云网络" />
+                  <img class="img-2" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/shoujiduan-6.png" alt="无需开发，快速上线小程序，手机端商城管理，新云网络" />
+                  <img class="img-1" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/shoujiduan-1.png" alt="无需开发，快速上线小程序，手机端商城管理，新云网络" />
                   <div class="show-code-img">
                     <div class="show-code-img-view">
                       <!-- <img
                       class="code-img"
-                      src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/%E4%B8%93%E5%8C%BA%20%281%29.jpeg"
+                      src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/%E4%B8%93%E5%8C%BA%20%281%29.jpeg"
                       alt="无需开发，快速上线小程序，小程序营销，新云网络"
                     /> -->
                     <p class="code-text mt-5" style="color: #ec2929">
@@ -3657,13 +3703,13 @@
               </div>
               <div class="col-7">
                 <div class="overview-bottom-img" data-aos="fade-up">
-                  <img class="img-2" src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/huiyuan-1.png" alt="无需开发，快速上线小程序，会员管理，新云网络" />
-                  <img class="img-1" src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/compress/chaojivip-1.png" alt="无需开发，快速上线小程序，会员管理，新云网络" />
+                  <img class="img-2" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/huiyuan-1.png" alt="无需开发，快速上线小程序，会员管理，新云网络" />
+                  <img class="img-1" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/compress/chaojivip-1.png" alt="无需开发，快速上线小程序，会员管理，新云网络" />
                   <div class="show-code-img">
                     <div class="show-code-img-view">
                       <img
                       class="code-img"
-                      src="https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/products/%E8%B6%85%E7%BA%A7%E4%BC%9A%E5%91%98%E5%8D%A1.jpeg"
+                      src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/products/%E8%B6%85%E7%BA%A7%E4%BC%9A%E5%91%98%E5%8D%A1.jpeg"
                       alt="扫码体验会员功能"
                     />
                     <p class="code-text mt-1">扫码体验会员功能</p>
@@ -3695,7 +3741,8 @@
                 "
                 class="text-light mt-2 mb-2"
               >
-                新年大促进行中（截止日期：2021-06-01）
+			    限时大促 最后一天</br>
+				离活动结束仅剩「<span class="se-txt">00</span>小时<span class="se-txt">00</span>分钟<span class="se-txt">00</span>秒」
               </p>
                 <p>
                  购买后可以享受7*24小时无忧服务，价格透明，一次购买，承诺绝无隐形消费！
@@ -3852,13 +3899,13 @@
                 <div class="row">
                   <div class="col-3">
                     <div class="footer-wiget-item">
-                      <h4 style="color: #fff">新云商城</h4>
-                      <p>新云商城，商城解决方案，无需开发，快速生成专属商城小程序。</p>
+                      <h4 style="color: #fff">新云网络</h4>
+                      <p>新云网络，商城解决方案，无需开发，快速生成专属商城小程序。</p>
                       <div class="buy-qtr">
                         <div class="left-view img-view">
                           <img
                             class="img-left img"
-                            src="../assets/img/demo-miniapp-qr.jpg"
+                            src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/assets/img/qrcode_gzh.jpg"
                             alt=""
                             style="padding: 0px; border-radius: 5px"
                           />
@@ -3867,7 +3914,7 @@
                         <div class="right-view img-view">
                           <img
                             class="img-right img"
-                            src="../assets/img/demo-qr.jpg"
+                            src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/assets/img/qrcode_xcx.jpg"
                             alt=""
                             style="padding: 0px; border-radius: 5px"
                           />
@@ -3881,12 +3928,12 @@
                       <h5>公司</h5>
                       <ul>
                         <li>
-                          <a rel="nofollow" target="_blank" href="https://www.newsaas.cn/">关于我们</a>
+                          <a rel="nofollow" target="_blank" href="/details/about.html">关于我们</a>
                         </li>
                         <li id="footer-contact">
-                          <a rel="nofollow" href="https://openai.weixin.qq.com/webapp/lEEkDwSGGj8byyOqyyUrKuP9p57Ykk?robotName=%E5%9C%A8%E7%BA%BF%E5%AE%A2%E6%9C%8D">联系我们</a>
+                          <a rel="nofollow" href="javascript:void(0);">联系我们</a>
                         </li>
-                        <li><a target="_blank" href="https://www.newsaas.cn/">资讯中心</a></li>
+                        <li><a target="_blank" href="/news/1-1.html">资讯中心</a></li>
                       </ul>
                     </div>
                   </div>
@@ -3921,15 +3968,15 @@
                       <h5>合作</h5>
                       <ul>
                         <li>
-                          <a rel="nofollow" target="_blank" href="https://www.newsaas.cn/">加入我们</a>
+                          <a rel="nofollow" target="_blank" href="/details/join-us.html">加入我们</a>
                         </li>
                         <li>
-                          <a target="_blank" href="https://www.newsaas.cn/"
+                          <a target="_blank" href="/details/socium.html"
                             >城市合伙人招募计划</a
                           >
                         </li>
                         <li id="about-proplme">
-                          <a rel="nofollow" href="https://www.newsaas.cn/user?action=ticket-new">反馈问题</a>
+                          <a rel="nofollow" href="javascript:void(0);">反馈问题</a>
                         </li>
                       </ul>
                     </div>
@@ -3941,12 +3988,10 @@
               <div class="copy-right">
                 <div class="row">
                   <div class="col-lg-12">
-                    <p>
-					<div class="copyright silver-color">Copyright © 2021 梧州新云网络科技有限责任公司</div><br/>
+                    <div class="copyright silver-color">Copyright © 2021 梧州新云网络科技有限责任公司</div><br/>
 					<a href="http://beian.miit.gov.cn/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/1000gcc/1000gcc.github.io@master/ping/static/media/icp.png" style="width:18px;height:15px;">桂ICP备 2020007365号
 					</a>
 					</div>
-                    </p>
                   </div>
                 </div>
               </div>
@@ -3956,16 +4001,16 @@
       </div>
     </div>
 
-    <script src="assets/js/jquery-3.3.1.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
+    <script src="https://img.newsaas.cn/newsaas.cn/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="https://img.newsaas.cn/newsaas.cn/assets/js/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.0-rc.1/dist/js.cookie.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/plugins.js"></script>
-    <script src="assets/js/vars.js"></script>
-    <script src="assets/js/menu.js"></script>
-    <script src="assets/js/script.js"></script>
-    <script src="../assets/js/banner.js"></script>
-    <script src="../assets/js/lulu/Tab.js"></script>
+    <script src="https://img.newsaas.cn/newsaas.cn/assets/js/bootstrap.min.js"></script>
+    <script src="https://img.newsaas.cn/newsaas.cn/assets/js/plugins.js"></script>
+    <script src="https://img.newsaas.cn/newsaas.cn/assets/js/vars.js"></script>
+    <script src="https://img.newsaas.cn/newsaas.cn/assets/js/menu.js"></script>
+    <script src="https://img.newsaas.cn/newsaas.cn/assets/js/script.js"></script>
+    <script src="https://img.newsaas.cn/newsaas.cn/assets/js/banner.js"></script>
+    <script src="https://img.newsaas.cn/newsaas.cn/assets/js/lulu/Tab.js"></script>
   
     <script>
        // 判断一键登录按钮是否需要登录，如果需要先跳转到登录页，登录后跳转到管理系统
@@ -4019,7 +4064,7 @@
       function kefuBtn(name) {
         _AIHECONG('customer', {
           head:
-            'https://tomato-cloud.oss-cn-hangzhou.aliyuncs.com/myimages/avater.png', //该字段可以将顾客头像同步过来
+            'https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/assets/img/myimages/avater.png', //该字段可以将顾客头像同步过来
           名称: name, // '属性名' : '值'
           手机: '未知',
           会员账号: '未知',
@@ -4044,6 +4089,6 @@
         
       // })
     </script>
-  <script src="assets/js/buy.js"></script>
+  <script src="https://img.newsaas.cn/newsaas.cn/assets/js/buy.js"></script>
   </body>
 </html>
