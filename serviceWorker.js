@@ -39,7 +39,6 @@ var cacheassets = [
   'mobile/details/wechat.html',
   'mobile/details/wechat-public.html',
   'mobile/details/write-off.html',
-  'mobile/css/style.css',
   'mobile/css/style-amber.css',
   'mobile/css/style-blue.css',
   'mobile/css/style-dark-blue.css',
@@ -54,20 +53,6 @@ var cacheassets = [
   'mobile/css/style-red.css',
   'mobile/css/style-skyblue.css',
   'mobile/css/style-teal.css',
-  'mobile/font/iconfont.css',
-  'mobile/js/app.js',
-  'mobile/js/color-scheme-demo.js',
-  'mobile/js/jquery.cookie.js',
-  'mobile/js/jquery-3.3.1.min.js',
-  'mobile/js/main.js',
-  'mobile/js/popper.min.js',
-  'mobile/js/pwa-services.js',
-  'mobile/vendor/bootstrap/js/bootstrap.min.js',
-  'mobile/vendor/chartjs/Chart.bundle.min.js',
-  'mobile/vendor/chartjs/chart-js-data.js',
-  'mobile/vendor/chartjs/utils.js',
-  'mobile/vendor/swiper/css/swiper.min.css',
-  'mobile/vendor/swiper/js/swiper.min.js',
 
 ]
 
