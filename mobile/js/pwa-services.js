@@ -3,7 +3,7 @@
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", function (event) {
         navigator.serviceWorker
-            .register("./serviceWorker.js", {
+            .register("https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/serviceWorker.js", {
             //.register("./serviceWorker.js", {
                 scope: './'
             })
