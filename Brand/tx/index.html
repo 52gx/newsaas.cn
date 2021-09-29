@@ -5,13 +5,22 @@
     <meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>国庆红旗头像在线生成 - 梧州新云网络科技有限责任公司</title>
-		<!-- 跳转手机版 开始 -->
-	<script type="text/javascript">
-	  if(/Android|webOS| iPhone | iPad | iPod |BlackBerry|opera mini|opera mobile|appleWebkit.*mobile|mobile/i.test(navigator.userAgent)) {
-		window.location.replace("https://newsaas.cn/mobile/");
-	  }
-	</script>
-	<!--跳转手机版 结束-->
+    <!-- 跳转PC端开始 -->
+    <script type="text/javascript">
+        var system = {
+            win: false,
+            mac: false,
+            xll: false
+        };
+        var p = navigator.platform;
+        system.win = p.indexOf("Win") == 0;
+        system.mac = p.indexOf("Mac") == 0;
+        system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+        if (system.win || system.mac || system.xll) {
+        window.location.href = "https://newsaas.cn/"; //PC端网址
+        } else {}
+    </script>
+    <!-- 跳转PC端结束 -->
     <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/favicon.ico" type="image/x-icon">
     <style>
         a:link {
