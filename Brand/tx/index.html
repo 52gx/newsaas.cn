@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>国庆红旗头像在线生成 - 梧州新云网络科技有限责任公司</title>
+		<!-- 跳转手机版 开始 -->
+	<script type="text/javascript">
+	  if(/Android|webOS| iPhone | iPad | iPod |BlackBerry|opera mini|opera mobile|appleWebkit.*mobile|mobile/i.test(navigator.userAgent)) {
+		window.location.replace("https://newsaas.cn/mobile/");
+	  }
+	</script>
+	<!--跳转手机版 结束-->
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/favicon.ico" type="image/x-icon">
+    <style>
+        a:link {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: #fff;
+        }
+
+        #export {
+            display: none;
+            margin: 0 auto;
+            width: 250px;
+            height: 250px;
+            margin-top: 50px;
+            margin-bottom: 50px
+        }
+
+        .operation-btns .o-btn1 {
+            background-size: 11.6rem 4.325rem
+        }
+
+        .operation-btns .o-btn2 {
+            background-size: 11.6rem 3.75rem
+        }
+
+        center {
+            color: #fff;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/css/jqery.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <img src="" alt="" class="img-load" style="width: 9.5rem; position: fixed; top: 0px; left: -9999px;">
+        <div class="operation-header">
+            <div class="h-title">
+            </div>
+        </div>
+        <div class="operation-box">
+            <a class="prev" onclick="changeHat()"></a>
+            <div class="operation-img">
+                <div class="cropper-content" id="content">
+                    <canvas class="" id="cvs"></canvas>
+                </div>
+            </div>
+            <a class="next" onclick="changeHat()"></a>
+        </div>
+        <img id="export" alt="国庆专属头像" src="">
+        <div class="operation-btns">
+            <a class="o-btn1">
+                <input class="o-btn1" id="upload" type="file" onchange="viewer()" style="opacity: 0;">
+            </a>
+            <a class="o-btn2" onclick="exportFunc()" style="display: none;">
+            </a>
+        </div>
+        <div class="operation-done">
+            <img src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/by.png" alt="" class="act-done-happy">
+        </div>
+        <center>
+            <a href="https://newsaas.cn/" target="_blank">查看更多</a>
+        </center>
+    </div>
+    <div style="display: none">
+        <img id="img" src="" alt="">
+        <img class="hide" id="hat0" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/hat0.png">
+        <img class="hide" id="hat1" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/hat1.png">
+        <img class="hide" id="hat2" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/hat2.png">
+        <img class="hide" id="hat3" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/hat3.png">
+        <img class="hide" id="hat4" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/hat4.png">
+        <img class="hide" id="hat5" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/hat5.png">
+        <img class="hide" id="hat6" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/hat6.png">
+        <img class="hide" id="hat7" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/hat7.png">
+        <img class="hide" id="hat8" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/hat8.png">
+        <img class="hide" id="hat9" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/hat9.png">
+        <img class="hide" id="hat10" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/hat10.png">
+        <img class="hide" id="hat11" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/hat11.png">
+        <img class="hide" id="hat12" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/hat12.png">
+        <img class="hide" id="hat13" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/hat13.png">
+        <img class="hide" id="hat14" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/hat14.png">
+        <img class="hide" id="hat15" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/hat15.png">
+        <img class="hide" id="hat16" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/hat16.png">
+        <img class="hide" id="hat17" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/hat17.png">
+        <img class="hide" id="hat18" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/hat18.png">
+        <img class="hide" id="hat19" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/hat19.png">
+        <img class="hide" id="hat20" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/hat20.png">
+        <img class="hide" id="hat21" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/hat21.png">
+        <img class="hide" id="hat22" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/hat22.png">
+        <img class="hide" id="hat23" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/hat23.png">
+        <img class="hide" id="hat24" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/hat24.png">
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/js/fabric.min.js"></script>
+    <script>
+        var cvs = document.getElementById("cvs");
+        var ctx = cvs.getContext("2d");
+        var exportImage = document.getElementById("export");
+        var img = document.getElementById("img");
+        var hat = "hat0";
+        var canvasFabric;
+        var hatInstance;
+        //var screenWidth = window.screen.width < 500 ? window.screen.width : 300;
+        var screenWidth = document.getElementById("content").scrollHeight;
+
+        function viewer() {
+            var file = document.getElementById("upload").files[0];
+            console.log(file);
+            var reader = new FileReader;
+            if (file) {
+                reader.readAsDataURL(file);
+                reader.onload = function(e) {
+                    img.src = reader.result;
+                    img.onload = function() {
+                        img2Cvs(img)
+                    }
+                }
+            } else {
+                img.src = ""
+            }
+        }
+
+        function img2Cvs(img) {
+            cvs.width = img.width;
+            cvs.height = img.height;
+            cvs.style.display = "block";
+            canvasFabric = new fabric.Canvas("cvs", {
+                width: screenWidth,
+                height: screenWidth,
+                backgroundImage: new fabric.Image(img, {
+                    scaleX: screenWidth / img.width,
+                    scaleY: screenWidth / img.height
+                })
+            });
+            changeHat();
+
+            document.getElementsByClassName("o-btn1")[0].style.display = "none";
+            document.getElementsByClassName("o-btn2")[0].style.display = "block";
+            //document.getElementById("tip").style.opacity = 1
+        }
+
+        function changeHat() {
+            document.getElementById(hat).style.display = "none";
+            var hats = document.getElementsByClassName("hide");
+            hat = "hat" + (+hat.replace("hat", "") + 1) % hats.length;
+            var hatImage = document.getElementById(hat);
+            hatImage.style.display = "block";
+            if (hatInstance) {
+                canvasFabric.remove(hatInstance)
+            }
+            console.log(hatImage.width);
+            console.log(100 / hatImage.width);
+            hatInstance = new fabric.Image(hatImage, {
+                top: 0,
+                left: 0,
+                scaleX: screenWidth / hatImage.width,
+                scaleY: screenWidth / hatImage.height,
+                cornerColor: "#0b3a42",
+                cornerStrokeColor: "#fff",
+                cornerStyle: "circle",
+                transparentCorners: false,
+                rotatingPointOffset: 30
+            });
+            hatInstance.setControlVisible("bl", false);
+            hatInstance.setControlVisible("tr", false);
+            hatInstance.setControlVisible("tl", false);
+            hatInstance.setControlVisible("mr", false);
+            hatInstance.setControlVisible("mt", false);
+            canvasFabric.add(hatInstance)
+        }
+
+        function exportFunc() {
+            document.getElementsByClassName("operation-box")[0].style.display = "none";
+            document.getElementsByClassName("operation-btns")[0].style.display = "none";
+
+            /*document.getElementById("exportBtn").style.display = "none";
+            document.getElementById("tip").innerHTML = "长按图片保存或分享";
+            document.getElementById("change").style.display = "none";*/
+            cvs.style.display = "none";
+            exportImage.style.display = "block";
+            exportImage.src = canvasFabric.toDataURL({
+                width: screenWidth,
+                height: screenWidth
+            });
+            alert('长按图片保存或分享');
+        }
+    </script>
+	
+<!--禁止审查代码start-->
+<script type="text/javascript">
+		//判断F12审查元素
+function fuckyou() {
+	window.close(); //关闭当前窗口(防抽)
+	window.location = "about:blank"; //将当前窗口跳转置空白页
+}
+
+function ck() {
+	console.profile();
+	console.profileEnd();
+	//我们判断一下profiles里面有没有东西，如果有，肯定有人按F12了，没错！！
+	if(console.clear) {
+		console.clear()
+	};
+	if(typeof console.profiles == "object") {
+		return console.profiles.length > 0;
+	}
+}
+
+function hehe() {
+	if((window.console && (console.firebug || console.table && /firebug/i.test(console.table()))) || (typeof opera == 'object' && typeof opera.postError == 'function' && console.profile.length > 0)) {
+		fuckyou();
+	}
+	if(typeof console.profiles == "object" && console.profiles.length > 0) {
+		fuckyou();
+	}
+}
+hehe();
+window.onresize = function() {
+	if((window.outerHeight - window.innerHeight) > 200)
+		//判断当前窗口内页高度和窗口高度，如果差值大于200，那么呵呵
+		fuckyou();
+}
+</script>
+<!--禁止审查代码end-->
+<img src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/img/China.png" style="width:99px;right:0px;position:fixed;bottom:0px;" /><!-- 右下角国旗 -->	
+<audio id="myaudio" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/music.mp3" acontrols="controls" autoplay="autoplay" hidden="true"></audio>
+<!-- <audio autoplay="autoplay"><source src="https://cdn.jsdelivr.net/gh/1000gcc/1000gcc.github.io@master/static/bg.mp3" type="audio/mpeg"></audio> -->
+<script>
+!function(p){"use strict";!function(t){var s=window,e=document,i=p,c="".concat("https:"===e.location.protocol?"https://":"http://","sdk.51.la/js-sdk-pro.min.js"),n=e.createElement("script"),r=e.getElementsByTagName("script")[0];n.type="text/javascript",n.setAttribute("charset","UTF-8"),n.async=!0,n.src=c,n.id="LA_COLLECT",i.d=n;var o=function(){s.LA.ids.push(i)};s.LA?s.LA.ids&&o():(s.LA=p,s.LA.ids=[],o()),r.parentNode.insertBefore(n,r)}()}({id:"JOrwpdHrWv1k2sjL",ck:"JOrwpdHrWv1k2sjL"});
+</script>
+</body>
+</html>
