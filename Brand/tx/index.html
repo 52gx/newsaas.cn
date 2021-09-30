@@ -255,6 +255,25 @@ window.onresize = function() {
 !function(p){"use strict";!function(t){var s=window,e=document,i=p,c="".concat("https:"===e.location.protocol?"https://":"http://","sdk.51.la/js-sdk-pro.min.js"),n=e.createElement("script"),r=e.getElementsByTagName("script")[0];n.type="text/javascript",n.setAttribute("charset","UTF-8"),n.async=!0,n.src=c,n.id="LA_COLLECT",i.d=n;var o=function(){s.LA.ids.push(i)};s.LA?s.LA.ids&&o():(s.LA=p,s.LA.ids=[],o()),r.parentNode.insertBefore(n,r)}()}({id:"JOrwpdHrWv1k2sjL",ck:"JOrwpdHrWv1k2sjL"});
 </script>
 <a href="https://mall.newsaas.cn/plugins/mobile/h5/mall/1/?#/?page_id=11" target="_blank;"><img src="img/China.png" style="width:99px;right:0px;position:fixed;bottom:0px;" /></a><!-- 右下角国旗 -->	
-<audio id="myaudio" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/music.mp3" acontrols="controls" autoplay="autoplay" hidden="true"></audio>
+<!-- <audio id="myaudio" src="https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/music.mp3" acontrols="controls" autoplay="autoplay" hidden="true"></audio> -->
+<script type="text/javascript"> 
+window.onload = function(){ 
+var arr = ["https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/music4.mp3","https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/music3.mp3","https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/music2.mp3","https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/music1.mp3","https://cdn.jsdelivr.net/gh/1000gcc/newsaas.cn@master/Brand/tx/music.mp3"];               //把需要播放的歌曲从后往前排，这里已添加两首音乐，可继续添加多个音乐 
+var myAudio = new Audio(); 
+myAudio.preload = true; 
+myAudio.controls = true; 
+myAudio.src = arr.pop();         //每次读数组最后一个元素 
+myAudio.addEventListener('ended', playEndedHandler, false); 
+myAudio.play(); 
+document.getElementById("audioBox").appendChild(myAudio); 
+myAudio.loop = false;//禁止循环，否则无法触发ended事件 
+function playEndedHandler(){ 
+myAudio.src = arr.pop(); 
+myAudio.play(); 
+console.log(arr.length); 
+!arr.length && myAudio.removeEventListener('ended',playEndedHandler,false);//只有一个元素时解除绑定 
+} 
+} 
+</script>
 </body>
 </html>
