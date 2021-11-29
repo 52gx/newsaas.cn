@@ -1,0 +1,97 @@
+.server-page {
+  margin-top: 0px;
+  background: #fff;
+  margin-bottom: 300px;
+}
+.server-page .server-page-view {
+  margin: 0px;
+  margin-bottom: 80px;
+  text-align: center;
+}
+.server-page .server-page-view .server-page-view-title {
+  text-align: center;
+  background-image: url(../../img/bg/cbg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 80px 0 150px;
+}
+.server-page .server-page-view .server-page-view-title h3 {
+  color: #fff;
+}
+.server-page .server-page-view .server-page-view-title p {
+  color: #fff;
+}
+.server-page .server-page-view .server-index-main-view {
+  width: 1200px;
+  margin: 0 auto;
+  margin-top: -90px;
+}
+.server-page .server-page-view .server-index-main-view .server-item {
+  width: 180px;
+  height: 210px;
+  background: #fff;
+  box-shadow: 0 4px 20px 5px rgba(68, 93, 127, 0.1);
+  border-radius: 4px;
+  text-align: center;
+  font-size: 14px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, height 0.1s ease;
+  padding: 15px 0px;
+  text-align: center;
+  cursor: default;
+}
+.server-page .server-page-view .server-index-main-view .float-l {
+  float: left;
+}
+
+.server-page
+  .server-page-view
+  .server-index-main-view
+  .server-item
+  + .server-item {
+  margin-left: 24px;
+}
+
+.server-page
+  .server-page-view
+  .server-index-main-view
+  .server-item
+  .server-item-img {
+  width: 150px;
+}
+
+.server-page
+  .server-page-view
+  .server-index-main-view
+  .server-item
+  .server-item-title {
+  font-size: 18px;
+  text-align: center;
+  font-weight: 500;
+  color: #333;
+  margin-top: 30px;
+}
+.server-page .server-page-view .sub-title {
+  display: inline-block;
+  padding: 0px 15px;
+  padding-top: 10px;
+  color: #666;
+  text-align: left;
+  line-height: 20px;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.server-page .server-page-view .server-index-main-view .server-item:hover {
+  box-shadow: 0 2px 14px 2px rgba(68, 93, 127, 0.2);
+  transform: translateY(-20px);
+  height: 280px;
+}
+
+.server-page
+  .server-page-view
+  .server-index-main-view
+  .server-item:hover
+  .sub-title {
+  opacity: 1;
+}
