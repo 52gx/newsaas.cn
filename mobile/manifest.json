@@ -1,0 +1,43 @@
+{
+  "name": "Finwallapp",
+  "short_name": "Finwallapp",
+  "start_url": "landing.html",
+  "display": "fullscreen",
+  "background_color": "#efefef",
+  "theme_color": "#1d28ad",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "https://img.newsaas.cn/newsaas.cn/favicon.ico",
+      "type": "image/png", "sizes": "72x72"
+    },
+    {
+      "src": "https://img.newsaas.cn/newsaas.cn/favicon.ico",
+      "type": "image/png", "sizes": "96x96"
+    },
+    {
+      "src": "https://img.newsaas.cn/newsaas.cn/favicon.ico",
+      "type": "image/png","sizes": "128x128"
+    },
+    {
+      "src": "https://img.newsaas.cn/newsaas.cn/favicon.ico",
+      "type": "image/png", "sizes": "144x144"
+    },
+    {
+      "src": "https://img.newsaas.cn/newsaas.cn/favicon.ico",
+      "type": "image/png", "sizes": "152x152"
+    },
+    {
+      "src": "https://img.newsaas.cn/newsaas.cn/favicon.ico",
+      "type": "image/png", "sizes": "192x192"
+    },
+    {
+      "src": "https://img.newsaas.cn/newsaas.cn/favicon.ico",
+      "type": "image/png", "sizes": "384x384"
+    },
+    {
+      "src": "https://img.newsaas.cn/newsaas.cn/favicon.ico",
+      "type": "image/png", "sizes": "512x512"
+    }
+  ]
+}

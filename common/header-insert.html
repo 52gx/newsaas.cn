@@ -1,0 +1,274 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-16 09:30:56
+ * @LastEditTime: 2021-02-01 15:37:27
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /web-php-guanwang/common/header.html
+-->
+	<!-- 跳转手机版 开始 -->
+	<script type="text/javascript">
+	  if(/Android|webOS| iPhone | iPad | iPod |BlackBerry|opera mini|opera mobile|appleWebkit.*mobile|mobile/i.test(navigator.userAgent)) {
+		window.location.replace("https://newsaas.cn/mobile/");
+	  }
+	</script>
+	<!--跳转手机版 结束-->
+	<!--客服 开始-->
+	<link rel="stylesheet" href="https://img.newsaas.cn/newsaas.cn/assets/kefu/kefu.css" type="text/css" media="screen" charset="utf-8">
+	<!-- 客服 结束 -->
+	<!-- 活动倒计时 开始 -->
+    <script src="https://img.newsaas.cn/newsaas.cn/assets/js/jquery.min.time.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var oDate = new Date();
+            var nowTime = oDate.getTime(); //现在的毫秒数
+            oDate.setDate(oDate.getDate() + 1); // 设定截止时间为第二天
+            var targetDate = new Date(oDate.toLocaleDateString());
+            run(targetDate);
+        });
+
+        function run(enddate) {
+            getDate(enddate);
+            setInterval("getDate('" + enddate + "')", 500);
+        }
+
+        function getDate(enddate) {
+            var oDate = new Date(); //获取日期对象
+
+            var nowTime = oDate.getTime(); //现在的毫秒数
+            var enddate = new Date(enddate);
+            var targetTime = enddate.getTime(); // 截止时间的毫秒数
+            var second = Math.floor((targetTime - nowTime) / 1000); //截止时间距离现在的秒数
+
+            var day = Math.floor(second / 24 * 60 * 60); //整数部分代表的是天；一天有24*60*60=86400秒 ；
+            second = second % 86400; //余数代表剩下的秒数；
+            var hour = Math.floor(second / 3600); //整数部分代表小时；
+            second %= 3600; //余数代表 剩下的秒数；
+            var minute = Math.floor(second / 60);
+            second %= 60;
+            var spanH = $('.se-txt')[0];
+            var spanM = $('.se-txt')[1];
+            var spanS = $('.se-txt')[2];
+
+            spanH.innerHTML = tow(hour);
+            spanM.innerHTML = tow(minute);
+            spanS.innerHTML = tow(second);
+        }
+
+        function tow(n) {
+            return n >= 0 && n < 10 ? '0' + n : '' + n;
+        }
+    </script>
+	<!-- 活动倒计时 结束 -->
+<header class="top-nav topnav white-nav">
+  <nav id="cssmenu" class="container">
+    <div class="logo">
+      <a href="/">
+        <img class="header-logo" id="header-logo" src="https://img.newsaas.cn/newsaas.cn/assets/img/logo_bk.png" alt="新云商城 logo 小程序 小程序开发 快速上线小程序" />
+        <!-- <h4 style="color: #fff; margin-top: 7px">新云商城</h4> -->
+      </a>
+    </div>
+    <div id="head-mobile"></div>
+    <div class="button"></div>
+    <ul class="navbar-nav">
+      <li><a href="/">首页</a></li>
+      <li class="drap-li">
+        <a class="dreap-top" href="javascript:void(0)">
+          产品中心
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="13"
+            height="13"
+            fill="currentColor"
+            class="bi bi-caret-down-fill ml-1"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"
+            />
+          </svg>
+
+          <div class="drap-meau" style="left: -250px; width: 850px">
+            <div class="row drap-meau-top-insert"></div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="/buy.html">价格</a>
+      </li>
+      <li class="drap-li-product">
+        <a class="dreap-top" href="javascript:void(0)">
+          解决方案
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="13"
+            height="13"
+            fill="currentColor"
+            class="bi bi-caret-down-fill-product ml-1"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"
+            />
+          </svg>
+
+          <div class="drap-meau" style="left: -250px; width: 650px">
+            <div class="row drap-meau-top-insert-product"></div>
+          </div>
+        </a>
+      </li>
+      <li><a href="https://bbs.newsaas.cn" target="_blank">帮助中心</a></li>
+      <!-- <li class="my-order-meau">
+        <a href="/order.html" target="_blank"> 我的订单 </a>
+      </li> -->
+      <li class="header-login nav-hide">
+        <!-- <a href="javascript:void(0)">登录 / 注册</a> -->
+		<a href="https://mall.newsaas.cn/" target="_blank">登录 / 注册</a>
+      </li>
+      <!-- <li class="user-info">
+        <a href="user.html">
+          <span class="avater">
+            <img
+              src="https://img.newsaas.cn/newsaas.cn/assets/img/myimages/avater.png"
+              alt=""
+            />
+          </span>
+          管理中心
+        </a>
+      </li> -->
+      <li class="top-btn user-admin nav-hide">
+        <a href="https://mall.newsaas.cn/web/index.php" target="_blank">
+          进入管理
+        </a>
+      </li>
+
+      <li class="top-btn try-admin">
+        <!-- <a href="login.html"> 免费试用</a> -->
+		<a href="https://openai.weixin.qq.com/webapp/lEEkDwSGGj8byyOqyyUrKuP9p57Ykk?robotName=%E5%9C%A8%E7%BA%BF%E5%AE%A2%E6%9C%8D" target="_blank"> 免费试用</a>
+      </li>
+
+      <!-- <li class="drap-li-user nav-my-user">
+        <a
+          class="dreap-top"
+          target="_blank"
+          href="https://mall.newsaas.cn/web/index.php?r=admin/user/me"
+        >
+          <img
+            style="
+              width: 30px;
+              vertical-align: middle;
+              padding: 3px;
+              border-radius: 50%;
+              background: #f3f3f3;
+              margin-right: 0px;
+              margin-top: -3px;
+            "
+            src="https://img.newsaas.cn/newsaas.cn/assets/img/myimages/avater.png"
+            alt="新云网络，小程序，小程商城，头像"
+          />
+          
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="13"
+            height="13"
+            fill="currentColor"
+            class="bi bi-caret-down-fill-user ml-1"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"
+            />
+          </svg>
+          <div
+            class="drap-meau"
+            style="
+              left: -30px;
+              width: 200px;
+              padding: 20px 10px;
+              padding-bottom: 0px;
+              background-color: #fff;
+            "
+          >
+            <div
+              class="user-right-view"
+              style="
+                padding: 0px;
+                width: 100%;
+                background-color: #ffff;
+                box-shadow: none;
+              "
+            >
+              <div class="user-avater">
+                <img
+                  src="https://img.newsaas.cn/newsaas.cn/assets/img/myimages/avater.png"
+                  alt=""
+                />
+              </div>
+              <p class="title mt-2" style="text-align: center">
+                <span class="user-phone" id="banner-phone">153****5752</span>
+              </p>
+              <p
+                class="title user-code-view mt-1 pb-3"
+                style="text-align: center; border-bottom: 1px solid #f6f6f6"
+              >
+                <img
+                  id="banner-user-type"
+                  class="user-code-icon"
+                  src="https://img.newsaas.cn/newsaas.cn/assets/img/myimages/user-try-icon.png"
+                  alt=""
+                />
+                <span
+                  id="timeout-ing"
+                  style="font-size: 14px; color: #666; margin-top: 10px"
+                  class="user-code"
+                  ><span class="code-type-view">试用账号：</span>剩余
+                  <span id="banner-last-day">0</span>
+                  <span id="banner-last-house">天</span>
+                </span>
+                <span id="timeout-nav" class="nav-hide">
+                  <span style="font-size: 14px; color: #666" class="user-code">
+                    账号已到期
+                  </span>
+                  <a style="margin-top: 20px" href="/pay.html" target="_blank">
+                    <button
+                      style="
+                        background: #1add97;
+                        border: 1px solid #1add97;
+                        height: 30px;
+                        line-height: 10px;
+                        font-size: 14px;
+                      "
+                      type="button"
+                      class="gotoShengji btn btn-primary mt-2"
+                    >
+                      升级服务
+                    </button>
+                  </a>
+                </span>
+
+                <span class="user-code-btn">立即升级账户</span>
+              </p>
+              <div class="mt-2">
+                <a href="#" class="list-group-item list-group-item-action"
+                  >管理中心</a
+                >
+
+              </div>
+              <div class="mt-3" style="text-align: right">
+                <button
+                  id="removeLogin"
+                  type="button"
+                  class="btn btn-outline-secondary btn-sm"
+                >
+                  退出登录
+                </button>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li> -->
+    </ul>
+  </nav>
+</header>
+<script src="https://img.newsaas.cn/newsaas.cn/assets/js/vars.js"></script>
+<script src="https://img.newsaas.cn/newsaas.cn/assets/js/banner.js"></script>
