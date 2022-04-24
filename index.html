@@ -3990,11 +3990,25 @@
               <div class="copy-right">
                 <div class="row">
                   <div class="col-lg-12">
+			  
+			  
+			          <style type="text/css">
+            div.icon{height:20px;width:20px;overflow: hidden;}
+            .icon .icon{width: 20px;height: 20px;display:block;position: relative;left: -20px;border-right: 20px solid transparent;
+                background: url(https://www.upyun.com/static/img/%E6%A0%B7%E5%BC%8F%E5%9B%BE.7cf927c.png) no-repeat;-webkit-filter: drop-shadow(#000 20px 0);filter: drop-shadow(#000 20px 0);   
+            }
+        </style>
+			  
+			  
                     <div class="copyright silver-color">Copyright © 2021 梧州新云网络科技有限责任公司</div><br/>
 					<a href="http://beian.miit.gov.cn/" target="_blank"><img src="https://img.newsaas.cn/newsaas.cn/assets/kefu/icp.png" style="width:18px;height:15px;">桂ICP备 2020007365号
+					</a><br/>
+			  <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://www.upyun.com/static/img/%E6%A0%B7%E5%BC%8F%E5%9B%BE.7cf927c.png" style="width:280px;height:15px;">
 					</a>
-			  <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://www.upyun.com/static/img/%E6%A0%B7%E5%BC%8F%E5%9B%BE.7cf927c.png" style="width:180px;height:15px;">桂ICP备 2020007365号
-					</a>
+			  
+			  <div class="icon">
+            <span class='icon' id='icon'></span>
+        </div>
 			  
 				  </div>
                   </div>
@@ -4005,6 +4019,15 @@
         </footer>
       </div>
     </div>
+
+
+ <script type="text/javascript">
+        document.getElementById('color').onchange = function(){
+            var c = this.value;
+            document.getElementById('icon').style.webkitFilter = 'drop-shadow('+c+' 20px 0)';
+        }
+    </script>
+
 
     <script src="https://img.newsaas.cn/newsaas.cn/assets/js/jquery-3.3.1.min.js"></script>
     <script src="https://img.newsaas.cn/newsaas.cn/assets/js/popper.min.js"></script>
